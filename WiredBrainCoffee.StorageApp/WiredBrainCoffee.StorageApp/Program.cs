@@ -1,4 +1,6 @@
 ﻿using System;
+using WiredBrainCoffee.StorageApp.Entitities;
+using WiredBrainCoffee.StorageApp.Repository;
 
 namespace WiredBrainCoffee.StorageApp
 {
@@ -6,7 +8,16 @@ namespace WiredBrainCoffee.StorageApp
     {
         static void Main(string[] args)
         {
-        Console.WriteLine("Hello World!");
+            var employeeRepository = new GenericRepository<Employee>();
+            employeeRepository.ADDEmployee(new Employee { FirstName = "Julia" });
+            employeeRepository.ADDEmployee(new Employee { FirstName = "frank" });
+            employeeRepository.ADDEmployee(new Employee { FirstName = "jeo" });
+            employeeRepository.SaveEmployee();
+
+            var organisationrepository = new GenericRepository<Organisation>();
+            organisationrepository.ADDEmployee(new Organisation { Name = "horlicks" });
+            organisationrepository.ADDEmployee(new Organisation { Name = "nike" });
+            organisationrepository.SaveEmployee();
         }
     }
 }
